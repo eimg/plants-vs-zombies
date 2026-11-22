@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="my">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#3f8f3b" />
+    <title>အပင်နှင့် ဇွန်ဘီ ၃D — မြက်ခင်းကာကွယ်ရေး</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="stage" aria-label="၃D မြက်ခင်း ဂိမ်းမြင်ကွင်း"></div>
+    <div id="toast-layer"></div>
+
+    <!-- Wave / Event Banner -->
+    <div id="banner" class="banner" role="status" aria-live="polite">
+      <div id="banner-title"></div>
+      <div id="banner-sub"></div>
+    </div>
+
+    <!-- In-Game HUD -->
+    <div id="hud" class="hud-hidden">
+      <header class="top-bar">
+        <div id="sun-pill" class="sun-pill" title="နေရောင်စွမ်းအင်">
+          <span class="sun-orb" aria-hidden="true"></span>
+          <span id="sun-value">175</span>
+        </div>
+
+        <div class="progress-card" aria-label="အဆင့် တိုးတက်မှု">
+          <div class="progress-meta">
+            <span>အဆင့် ၁</span>
+            <span id="wave-count">0/15</span>
+          </div>
+          <div class="progress-track">
+            <div id="progress-fill" class="progress-fill"></div>
+            <span class="progress-flag" aria-hidden="true">🚩</span>
+            <span id="progress-head" class="progress-head" aria-hidden="true">🧟</span>
+          </div>
+        </div>
+
+        <div class="icon-actions">
+          <button id="btn-mute" class="icon-btn" type="button" aria-label="အသံပိတ်ရန်">🔊</button>
+          <button id="btn-pause" class="icon-btn" type="button" aria-label="ခဏရပ်ရန်">⏸</button>
+        </div>
+      </header>
+
+      <footer class="bottom-dock">
+        <div id="tip-pill" class="tip-pill"></div>
+        <div class="tray-shell">
+          <div id="seed-bar" class="seed-bar"></div>
+          <button id="btn-shovel" class="shovel-btn" type="button" aria-label="အပင်တူးဖယ်ရန်">
+            <span aria-hidden="true">⛏️</span>
+            <small>တူး</small>
+          </button>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Start Menu Modal -->
+    <div id="modal-menu" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="badge-pill">အဆင့်တစ်ခု • ၃D မိုဘိုင်း</div>
+        <h1>အပင်နှင့် ဇွန်ဘီ</h1>
+        <p class="modal-subtitle">
+          အိမ်ရှေ့မြက်ခင်း လမ်းကြောင်း ၅ ခုကို ဇွန်ဘီများလက်မှ ကာကွယ်ပါ!
+        </p>
+
+        <div class="how-to-list">
+          <div class="how-row">
+            <span>☀️</span>
+            <div>ကျလာသော <strong>နေရောင်</strong> များကို နှိပ်၍ စုဆောင်းပါ</div>
+          </div>
+          <div class="how-row">
+            <span>🌱</span>
+            <div>အောက်မှ <strong>အပင်</strong> ရွေးပြီး မြက်ခင်းကွက်ပေါ် စိုက်ပါ</div>
+          </div>
+          <div class="how-row">
+            <span>🍒</span>
+            <div>ဦးထုပ်ဆောင်း ဇွန်ဘီများနှင့် <strong>နောက်ဆုံးလှိုင်း</strong> ကို အနိုင်ယူပါ!</div>
+          </div>
+        </div>
+
+        <button id="btn-start" class="btn-primary" type="button">ကစားမည်</button>
+      </div>
+    </div>
+
+    <!-- Pause Modal -->
+    <div id="modal-pause" class="modal-backdrop hidden">
+      <div class="modal-card">
+        <div class="badge-pill">ခဏရပ်ထားသည်</div>
+        <h2>ခဏနားနေသည်</h2>
+        <p class="modal-subtitle">ဇွန်ဘီများ လမ်းဘေးတွင် စောင့်နေပါသည်။</p>
+        <button id="btn-resume" class="btn-primary" type="button">ဆက်ကစားမည်</button>
+        <button id="btn-restart-pause" class="btn-secondary" type="button">အစမှ ပြန်ကစားမည်</button>
+      </div>
+    </div>
+
+    <!-- Victory Modal -->
+    <div id="modal-victory" class="modal-backdrop hidden">
+      <div class="modal-card">
+        <div class="badge-pill">အဆင့် အောင်မြင်ပြီ!</div>
+        <h2>အောင်နိုင်ပြီ! 🏆</h2>
+        <p class="modal-subtitle">သင့်အိမ်နှင့် မြက်ခင်းကို အောင်မြင်စွာ ကာကွယ်နိုင်ခဲ့သည်။</p>
+        <div id="victory-stats" class="stats-grid"></div>
+        <button id="btn-play-again-win" class="btn-primary" type="button">ထပ်ကစားမည်</button>
+      </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="modal-gameover" class="modal-backdrop hidden">
+      <div class="modal-card danger">
+        <div class="badge-pill">ရှုံးနိမ့်သွားပြီ!</div>
+        <h2>ဇွန်ဘီများ အိမ်ထဲဝင်သွားပြီ!</h2>
+        <p class="modal-subtitle">
+          အကြံပြုချက် - နေကြာအရင်စိုက်ပြီး ပုံးဆောင်းဇွန်ဘီအတွက် သစ်ကြား သို့မဟုတ် ချယ်ရီဗုံး သုံးပါ။
+        </p>
+        <div id="gameover-stats" class="stats-grid"></div>
+        <button id="btn-play-again-lose" class="btn-primary" type="button">ပြန်ကြိုးစားမည်</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -39,7 +39,7 @@ export const ECONOMY = {
 export const PLANT_TYPES = {
   sunflower: {
     id: 'sunflower',
-    name: 'နေကြာ',
+    name: 'Sunflower',
     cost: 50,
     hp: 150,
     cooldown: 4.2,
@@ -47,11 +47,11 @@ export const PLANT_TYPES = {
     sunInterval: 9.8,
     color: '#fbbf24',
     accent: '#92400e',
-    tip: 'နေရောင် +25 ထုတ်ပေးသည်',
+    tip: 'Sun +25 ထုတ်ပေးသည်',
   },
   peashooter: {
     id: 'peashooter',
-    name: 'ပဲပစ်ပင်',
+    name: 'Peashooter',
     cost: 100,
     hp: 150,
     cooldown: 4.2,
@@ -60,21 +60,21 @@ export const PLANT_TYPES = {
     peaSpeed: 7.6,
     color: '#4ade80',
     accent: '#15803d',
-    tip: 'လမ်းကြောင်းတစ်လျှောက် ပဲစေ့ပစ်သည်',
+    tip: 'တစ်လိုင်းလုံး ပဲစေ့ပစ်တိုက်ခိုက်သည်',
   },
   wallnut: {
     id: 'wallnut',
-    name: 'သစ်ကြား',
+    name: 'Wall-nut',
     cost: 50,
     hp: 1000,
     cooldown: 9.5,
     color: '#d97706',
     accent: '#78350f',
-    tip: 'ဇွန်ဘီများကို တားဆီးပေးသည်',
+    tip: 'Zombie တွေကို တားဆီးပေးသည်',
   },
   snowpea: {
     id: 'snowpea',
-    name: 'ရေခဲပဲ',
+    name: 'Snow Pea',
     cost: 175,
     hp: 150,
     cooldown: 5.2,
@@ -85,11 +85,11 @@ export const PLANT_TYPES = {
     chillFactor: 0.45,
     color: '#38bdf8',
     accent: '#0369a1',
-    tip: 'ဇွန်ဘီများကို အေးခဲနှေးစေသည်',
+    tip: 'Zombie တွေကို အေးခဲနှေးစေသည်',
   },
   cherrybomb: {
     id: 'cherrybomb',
-    name: 'ချယ်ရီဗုံး',
+    name: 'Cherry',
     cost: 150,
     hp: 9999,
     cooldown: 13.0,
@@ -107,7 +107,7 @@ export const PLANT_ORDER = ['sunflower', 'peashooter', 'wallnut', 'snowpea', 'ch
 export const ZOMBIE_TYPES = {
   basic: {
     id: 'basic',
-    name: 'ဇွန်ဘီ',
+    name: 'Zombie',
     hp: 100,
     armorHp: 0,
     armorType: null,
@@ -118,7 +118,7 @@ export const ZOMBIE_TYPES = {
   },
   flag: {
     id: 'flag',
-    name: 'အလံကိုင်ဇွန်ဘီ',
+    name: 'Flag Zombie',
     hp: 120,
     armorHp: 0,
     armorType: null,
@@ -129,7 +129,7 @@ export const ZOMBIE_TYPES = {
   },
   cone: {
     id: 'cone',
-    name: 'ကတော့ဆောင်းဇွန်ဘီ',
+    name: 'Conehead',
     hp: 100,
     armorHp: 130,
     armorType: 'cone',
@@ -140,7 +140,7 @@ export const ZOMBIE_TYPES = {
   },
   bucket: {
     id: 'bucket',
-    name: 'ပုံးဆောင်းဇွန်ဘီ',
+    name: 'Buckethead',
     hp: 100,
     armorHp: 250,
     armorType: 'bucket',
@@ -153,7 +153,7 @@ export const ZOMBIE_TYPES = {
 
 // Short, fun single-level timeline with relaxed pacing on the longer 9-row lawn
 export const LEVEL_EVENTS = [
-  { time: 1.0, banner: 'ဇွန်ဘီများ ရောက်လာပြီ!', sub: 'နေကြာနှင့် ပဲပစ်ပင်များ အရင်စိုက်ပါ', style: 'info' },
+  { time: 1.0, banner: 'Zombie တွေ ရောက်လာပြီ!', sub: 'Sunflower နဲ့ Peashooter တွေ အရင်စိုက်ပါ', style: 'info' },
   { time: 5.5, type: 'basic' },
   { time: 14.0, type: 'basic' },
 
@@ -167,8 +167,8 @@ export const LEVEL_EVENTS = [
   { time: 51.0, type: 'bucket' },
   { time: 54.0, type: 'basic' },
 
-  { time: 60.0, banner: 'ဇွန်ဘီအုပ်စုကြီး ချီတက်လာနေပြီ!', style: 'warning', sound: 'wave' },
-  { time: 63.0, banner: 'နောက်ဆုံးလှိုင်း!', style: 'danger' },
+  { time: 60.0, banner: 'Zombie အုပ်စုကြီး ချီတက်လာနေပြီ!', style: 'warning', sound: 'wave' },
+  { time: 63.0, banner: 'FINAL WAVE!', sub: 'နောက်ဆုံးလှိုင်း ရောက်လာပြီ!', style: 'danger' },
   { time: 63.3, type: 'flag', forcedLane: 2 },
   { time: 64.1, type: 'cone', forcedLane: 0 },
   { time: 64.9, type: 'basic', forcedLane: 4 },

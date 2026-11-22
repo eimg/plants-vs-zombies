@@ -102,7 +102,7 @@ PLANT_ORDER.forEach((id, idx) => {
   btn.className = 'seed-card';
   btn.dataset.plant = id;
   btn.type = 'button';
-  btn.setAttribute('aria-label', `${def.name} (နေရောင် ${def.cost})`);
+  btn.setAttribute('aria-label', `${def.name} (${def.cost} Sun)`);
   btn.innerHTML = `
     <span class="seed-hotkey">${idx + 1}</span>
     <div class="seed-icon">${PLANT_ICONS[id]}</div>
@@ -186,7 +186,7 @@ const game = new PvZGame(stageEl, {
     shovelBtn.classList.toggle('active', data.shovelMode);
 
     if (data.shovelMode) {
-      tipPillEl.textContent = 'ဖယ်ရှားလိုသော အပင်ကို နှိပ်ပါ';
+      tipPillEl.textContent = 'ဖယ်ရှားလိုတဲ့ Plant ကို နှိပ်ပါ';
       tipPillEl.classList.add('visible');
     } else if (data.selectedPlant) {
       const def = PLANT_TYPES[data.selectedPlant];
@@ -216,16 +216,16 @@ const game = new PvZGame(stageEl, {
   onVictory(stats) {
     victoryStatsEl.innerHTML = `
       <div class="stat"><span>ကြာချိန်</span><strong>${formatTime(stats.time)}</strong></div>
-      <div class="stat"><span>နှိမ်နင်းမှု</span><strong>${stats.zombiesDefeated}</strong></div>
-      <div class="stat"><span>စိုက်ပင်</span><strong>${stats.plantsPlaced}</strong></div>
-      <div class="stat"><span>မြက်ရိတ်စက်</span><strong>${stats.mowersLeft}/5</strong></div>
+      <div class="stat"><span>Zombies</span><strong>${stats.zombiesDefeated}</strong></div>
+      <div class="stat"><span>Plants</span><strong>${stats.plantsPlaced}</strong></div>
+      <div class="stat"><span>Mowers</span><strong>${stats.mowersLeft}/5</strong></div>
     `;
   },
   onGameOver(stats) {
     gameoverStatsEl.innerHTML = `
-      <div class="stat"><span>ခံနိုင်ချိန်</span><strong>${formatTime(stats.time)}</strong></div>
-      <div class="stat"><span>နှိမ်နင်းမှု</span><strong>${stats.zombiesDefeated}</strong></div>
-      <div class="stat"><span>စိုက်ပင်</span><strong>${stats.plantsPlaced}</strong></div>
+      <div class="stat"><span>ကြာချိန်</span><strong>${formatTime(stats.time)}</strong></div>
+      <div class="stat"><span>Zombies</span><strong>${stats.zombiesDefeated}</strong></div>
+      <div class="stat"><span>Plants</span><strong>${stats.plantsPlaced}</strong></div>
     `;
   },
 });
@@ -252,7 +252,7 @@ muteBtn.addEventListener('click', (e) => {
   soundFX.unlock();
   const muted = soundFX.toggleMute();
   muteBtn.textContent = muted ? '🔇' : '🔊';
-  muteBtn.setAttribute('aria-label', muted ? 'အသံဖွင့်ရန်' : 'အသံပိတ်ရန်');
+  muteBtn.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
 });
 
 // Desktop keyboard convenience shortcuts

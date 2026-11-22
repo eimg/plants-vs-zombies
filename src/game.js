@@ -1079,7 +1079,7 @@ export class PvZGame {
         soundFX.playMower();
         navigator.vibrate?.([25, 15, 35]);
         this._triggerShake(0.22, 0.25);
-        this.callbacks.onBanner?.('Lawnmower စတင်လိုက်ပြီ!', '', 'info');
+        this.callbacks.onBanner?.('မြက်ရိတ်စက် စတင်လိုက်ပြီ!', '', 'info');
       }
 
       // Check House Breach (Game Over!)

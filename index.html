@@ -10,11 +10,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#3f8f3b" />
-    <title>Plants vs. Zombies 3D</title>
+    <title>Plants vs. Zombies 3D — မြက်ခင်းကာကွယ်ရေး</title>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <div id="stage" aria-label="Plants vs. Zombies 3D Lawn"></div>
+    <div id="stage" aria-label="3D မြက်ခင်း ဂိမ်းမြင်ကွင်း"></div>
     <div id="toast-layer"></div>
 
     <!-- Wave / Event Banner -->
@@ -26,14 +26,14 @@
     <!-- In-Game HUD -->
     <div id="hud" class="hud-hidden">
       <header class="top-bar">
-        <div id="sun-pill" class="sun-pill" title="Sun">
+        <div id="sun-pill" class="sun-pill" title="နေရောင်စွမ်းအင်">
           <span class="sun-orb" aria-hidden="true"></span>
           <span id="sun-value">175</span>
         </div>
 
-        <div class="progress-card" aria-label="Level Progress">
+        <div class="progress-card" aria-label="အဆင့် တိုးတက်မှု">
           <div class="progress-meta">
-            <span>Level 1</span>
+            <span>အဆင့် ၁</span>
             <span id="wave-count">0/15</span>
           </div>
           <div class="progress-track">
@@ -44,8 +44,8 @@
         </div>
 
         <div class="icon-actions">
-          <button id="btn-mute" class="icon-btn" type="button" aria-label="Mute">🔊</button>
-          <button id="btn-pause" class="icon-btn" type="button" aria-label="Pause">⏸</button>
+          <button id="btn-mute" class="icon-btn" type="button" aria-label="အသံပိတ်ရန်">🔊</button>
+          <button id="btn-pause" class="icon-btn" type="button" aria-label="ခဏရပ်ရန်">⏸</button>
         </div>
       </header>
 
@@ -53,9 +53,9 @@
         <div id="tip-pill" class="tip-pill"></div>
         <div class="tray-shell">
           <div id="seed-bar" class="seed-bar"></div>
-          <button id="btn-shovel" class="shovel-btn" type="button" aria-label="Dig">
+          <button id="btn-shovel" class="shovel-btn" type="button" aria-label="အပင်တူးဖယ်ရန်">
             <span aria-hidden="true">⛏️</span>
-            <small>Dig</small>
+            <small>တူး</small>
           </button>
         </div>
       </footer>
@@ -64,24 +64,24 @@
     <!-- Start Menu Modal -->
     <div id="modal-menu" class="modal-backdrop">
       <div class="modal-card">
-        <div class="badge-pill">Level 1 • 3D Mobile</div>
+        <div class="badge-pill">အဆင့်တစ်ခု • 3D မိုဘိုင်း</div>
         <h1>Plants vs. Zombies</h1>
         <p class="modal-subtitle">
-          အိမ်ရှေ့မြက်ခင်း 5 lanes ကို Zombie တွေလက်မှ ကာကွယ်ပါ!
+          အိမ်ရှေ့မြက်ခင်း လမ်းကြောင်း ၅ ခုကို ဇွန်ဘီများလက်မှ ကာကွယ်ပါ!
         </p>
 
         <div class="how-to-list">
           <div class="how-row">
             <span>☀️</span>
-            <div>ကျလာတဲ့ <strong>Sun</strong> တွေကို နှိပ်ပြီး စုဆောင်းပါ</div>
+            <div>ကျလာသော <strong>နေရောင်</strong> များကို နှိပ်၍ စုဆောင်းပါ</div>
           </div>
           <div class="how-row">
             <span>🌱</span>
-            <div>အောက်က <strong>Plant</strong> ရွေးပြီး မြက်ခင်းကွက်ပေါ် စိုက်ပါ</div>
+            <div>အောက်မှ <strong>အပင်</strong> ရွေးပြီး မြက်ခင်းကွက်ပေါ် စိုက်ပါ</div>
           </div>
           <div class="how-row">
             <span>🍒</span>
-            <div>Conehead, Buckethead တွေနဲ့ <strong>Final Wave</strong> ကို အနိုင်ယူပါ!</div>
+            <div>ဦးထုပ်ဆောင်း ဇွန်ဘီများနှင့် <strong>နောက်ဆုံးလှိုင်း</strong> ကို အနိုင်ယူပါ!</div>
           </div>
         </div>
 
@@ -92,20 +92,20 @@
     <!-- Pause Modal -->
     <div id="modal-pause" class="modal-backdrop hidden">
       <div class="modal-card">
-        <div class="badge-pill">Paused</div>
-        <h2>ခဏရပ်ထားသည်</h2>
-        <p class="modal-subtitle">Zombie တွေ လမ်းဘေးမှာ စောင့်နေပါတယ်။</p>
+        <div class="badge-pill">ခဏရပ်ထားသည်</div>
+        <h2>ခဏနားနေသည်</h2>
+        <p class="modal-subtitle">ဇွန်ဘီများ လမ်းဘေးတွင် စောင့်နေပါသည်။</p>
         <button id="btn-resume" class="btn-primary" type="button">ဆက်ကစားမည်</button>
-        <button id="btn-restart-pause" class="btn-secondary" type="button">ပြန်စမည်</button>
+        <button id="btn-restart-pause" class="btn-secondary" type="button">အစမှ ပြန်ကစားမည်</button>
       </div>
     </div>
 
     <!-- Victory Modal -->
     <div id="modal-victory" class="modal-backdrop hidden">
       <div class="modal-card">
-        <div class="badge-pill">Level Complete!</div>
+        <div class="badge-pill">အဆင့် အောင်မြင်ပြီ!</div>
         <h2>အောင်နိုင်ပြီ! 🏆</h2>
-        <p class="modal-subtitle">သင့်အိမ်နဲ့ မြက်ခင်းကို အောင်မြင်စွာ ကာကွယ်နိုင်ခဲ့ပါပြီ။</p>
+        <p class="modal-subtitle">သင့်အိမ်နှင့် မြက်ခင်းကို အောင်မြင်စွာ ကာကွယ်နိုင်ခဲ့သည်။</p>
         <div id="victory-stats" class="stats-grid"></div>
         <button id="btn-play-again-win" class="btn-primary" type="button">ထပ်ကစားမည်</button>
       </div>
@@ -114,10 +114,10 @@
     <!-- Game Over Modal -->
     <div id="modal-gameover" class="modal-backdrop hidden">
       <div class="modal-card danger">
-        <div class="badge-pill">Game Over</div>
-        <h2>Zombie တွေ အိမ်ထဲဝင်သွားပြီ!</h2>
+        <div class="badge-pill">ရှုံးနိမ့်သွားပြီ!</div>
+        <h2>ဇွန်ဘီများ အိမ်ထဲဝင်သွားပြီ!</h2>
         <p class="modal-subtitle">
-          အကြံပြုချက် - Sunflower အရင်စိုက်ပြီး Buckethead အတွက် Wall-nut ဒါမှမဟုတ် Cherry Bomb သုံးပါ။
+          အကြံပြုချက် - နေကြာအရင်စိုက်ပြီး ပုံးဆောင်းဇွန်ဘီအတွက် သစ်ကြား သို့မဟုတ် ချယ်ရီဗုံး သုံးပါ။
         </p>
         <div id="gameover-stats" class="stats-grid"></div>
         <button id="btn-play-again-lose" class="btn-primary" type="button">ပြန်ကြိုးစားမည်</button>

@@ -2,6 +2,8 @@
   "name": "plants-vs-zombies-vertical-3d",
   "version": "1.0.0",
   "description": "Short, vertical, mobile-friendly 3D Plants vs. Zombies single-level browser game built with Three.js",
+  "author": "Ei Maung",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
